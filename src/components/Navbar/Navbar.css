@@ -1,0 +1,12 @@
+.NavbarItems{
+    background-color: lightgray;
+    width: 6rem;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-menu{
+    list-style: none;
+    padding: 0;
+}
