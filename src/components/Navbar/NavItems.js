@@ -1,22 +1,22 @@
 export const NavItems = [
     {
         title: 'Home',
-        url: '#',
+        url: '',
         cName: 'nav-links'
     },
     {
         title: 'Game',
-        url: '#',
+        url: 'Game',
         cName: 'nav-links'
     },
     {
         title: 'Report',
-        url: '#',
+        url: 'Report',
         cName: 'nav-links'
     },
     {
         title: 'Account',
-        url: '#',
+        url: 'Account',
         cName: 'nav-links'
     },
 ]

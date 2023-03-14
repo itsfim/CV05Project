@@ -1,9 +1,12 @@
 .NavbarItems{
     background-color: lightgray;
+
+    position: absolute;
+
     width: 6rem;
     padding: 1rem;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+    margin: 0;
 }
 
 .nav-menu{
