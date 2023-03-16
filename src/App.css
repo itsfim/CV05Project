@@ -1,3 +1,20 @@
 .header{
   text-align: center;
 }
+
+.grid{
+	display: grid;
+	grid-gap: 2rem;
+	grid-template-rows: auto;
+	grid-template-columns:1fr;
+	grid-template-areas:
+				"h1 h1"
+				"main main";
+
+    width: calc(100% - 10rem);
+    float: right;
+}
+
+.subHeading{
+  text-align: center;
+}

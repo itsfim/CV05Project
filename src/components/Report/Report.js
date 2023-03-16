@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import '../../App.css'
-import './Game.css'
+import './Report.css'
 
-
-class Game extends Component {
+class Report extends Component {
     render() {
         return(
             <div className='grid'>
-                <h1 className='h1'>Game Page</h1>
+                <h1 className='h1'>Report Page</h1>
                 <main className='main'>
 
                 </main>
@@ -15,4 +14,4 @@ class Game extends Component {
         )
     }
 }
-export default Game;
+export default Report;

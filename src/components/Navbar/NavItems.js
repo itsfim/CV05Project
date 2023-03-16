@@ -1,7 +1,7 @@
 export const NavItems = [
     {
         title: 'Home',
-        url: '',
+        url: 'Home',
         cName: 'nav-links'
     },
     {
