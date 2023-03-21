@@ -5,7 +5,7 @@ import './Game.css'
 //import './GameScript'
 
 let colors = ['red', 'blue', 'green', 'yellow', 'purple'];
-let shapes = ['circle'];
+let shapes = ['circle','triangle','square'];
 let pattern = [];
 let index = 0;
 let score = 0;
