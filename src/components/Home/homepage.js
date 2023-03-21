@@ -13,7 +13,7 @@ Aliquam vitae tortor neque. Pellentesque laoreet molestie venenatis. Quisque odi
 Vivamus dapibus sem et augue hendrerit eleifend. Nunc lacinia et lorem eget elementum. Aenean mollis enim nibh, vitae pretium odio varius eget. Proin dapibus, nunc eget fringilla tincidunt, risus lorem pellentesque quam, vel cursus enim nibh ut dui. Integer a urna in libero luctus dignissim. Pellentesque varius, nisi sit amet aliquet posuere, enim sapien porta arcu, vitae condimentum turpis est sed elit. Aenean mollis pulvinar lectus quis fermentum. </p>
         </div>
         <div className='item'>
-            <img src={require('./images/placeholder.jpg')} alt='placeholder'/>
+            <img src={require('./../images/placeholder.jpg')} alt='placeholder'/>
         </div>
         <div className='item'>
             <h2>About us</h2>

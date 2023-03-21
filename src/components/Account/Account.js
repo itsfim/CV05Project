@@ -1,8 +1,5 @@
-import React, { Component } from 'react';
-import '../../App.css'
-import './Account.css'
-
-class Account extends Component {
+import React from 'react';
+class Account extends React.Component {
 
     render() {
         return(

@@ -1,10 +1,11 @@
 import "./App.css";
-import { Helmet } from "react-helmet";
-import Homepage from './components/homepage.js';
-import NotFound from "./components/notfound.js";
-import Navbar from "./components/handleNavbar";
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import GameHouse from "./components/gameHouse";
+import Homepage from './components/Home/homepage.js';
+import NotFound from "./components/Errors/notfound.js";
+import Navbar from "./components/Navbar/handleNavbar";
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import GameHouse from "./components/Game/gameHouse";
+import Report from './components/Report/Report.js';
+import Account from './components/Account/Account.js'
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
          <Route path="homepage" element={<Homepage/>}/>
          <Route path="*" element={<NotFound/>}/>
          <Route path="game" element={<GameHouse/>}/>
+         <Route path="login" element={<Account/>}/>
+         <Route path="report" element={<Report/>}/>
          </Routes>
        </div>
        </BrowserRouter>

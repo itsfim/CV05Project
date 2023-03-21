@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import '../../App.css'
-import './Report.css'
+import React from 'react';
 
-class Report extends Component {
+
+class Report extends React.Component {
     render() {
         return(
             <div className='grid'>

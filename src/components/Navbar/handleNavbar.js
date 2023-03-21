@@ -35,7 +35,7 @@ render() {
              <li><Link to="homepage">Homepage</Link></li>
              <li><Link to="login">Login</Link></li>
              <li><Link to="game">Game</Link></li>
-             <li><Link to="account">Account</Link></li>
+             <li><Link to="report">Report</Link></li>
            </ul></div>
     </nav>
   );
