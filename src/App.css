@@ -1,20 +1,184 @@
-.header{
+ul {
+  list-style-type: none;
+  width: 20%;
+  margin:0;
+  top:0;
+  bottom:0;
+  padding:0;
+  height: 100%;
+  min-height:100vh;
+  background-color: #D9D9D9;
+  position: fixed; /* Make it stick, even on scroll */
+  overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+li a {
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
+  padding: 10px;;
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+body{
+  background-color: #FAF9F6;
+}
+.toggleHam{
+  top: 3%;
+  left: 3%;
+  position:fixed;
+  background-color: #D9D9D9;
+  display: none;
+  flex-direction:column;
+  justify-content: space-between;
+  height: 5%;
+  width: 7%  ;
+}
+.Wrapper{
+  grid-template-columns: 50% 50%;
+  display: inline-grid;
+  max-width: 75%;
+  margin-left: 25%;
+}
+.WrapperGame{
+  grid-template-columns:repeat(1, 100%);
+  display: inline-grid;
+  max-width: 75%;
+  margin-left: 25%;
+  background-color:#D9D9D9;
+  padding:3%;
+  border-radius: 25px;
+  align-content: center;
+}
+.WrapperGame .item{
+  min-width:10%;
 }
 
-.grid{
-	display: grid;
-	grid-gap: 2rem;
-	grid-template-rows: auto;
-	grid-template-columns:1fr;
-	grid-template-areas:
-				"h1 h1"
-				"main main";
-
-    width: calc(100% - 10rem);
-    float: right;
+h1{
+  text-align: center;
+  margin-left: 25%;
+}
+.Wrapper h2{
+  text-align: center;
+}
+.item{
+  border-radius: 25px;
+  width:90%;
+  background-color:#D9D9D9;
+  padding: 2%;
+margin: 3% 0;
+height:fit-content;
+}
+.notFound{
+    display: block;
+    padding:auto;
+    margin-left: 25%;
+}
+img{
+  width:100%;
+  height:auto;
+  display:flex;
+}
+.button ul{
+  width: 100%;
+  transition: ease-in;
+  animation-name: menuTransition;
+  animation-duration: 1s;
+  border-radius: 0px 25px 25px 0px;
+}
+.pageIntro{
+  animation-name: fadeIn;
+  animation-duration: 1s;
 }
 
-.subHeading{
-  text-align: center;
+/*game below*/
+#pattern {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+.shape {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.square {
+  transform: rotate(45deg);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid;
+}
+
+/*#game {
+  display: none;
+}*/
+
+.none{
+  display: none;
+}
+
+.block{
+  display: block;
+}
+@media only screen and (max-width: 1200px) {
+  .Wrapper{
+    display: grid;
+    grid-template-columns: repeat(1, 100%); 
+    padding:auto;
+    align-items: center;
+    margin-left: 30%;
+  }
+}
+@media only screen and (max-width: 796px) {
+.Wrapper{
+  display: grid;
+  grid-template-columns: repeat(1, 100%); 
+  padding:auto;
+  align-items: center;
+  margin: auto;
+}
+.WrapperGame{
+  display: grid;
+  grid-template-columns: repeat(1, 100%); 
+  padding:auto;
+  align-items: center;
+  margin: auto;
+}
+.full{
+  display: none;
+}
+.toggleHam{display: flex;}
+}
+
+
+@keyframes menuTransition {
+0% {width: 0%;}
+100% {width: 100%}
+}
+@keyframes fadeIn{
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+ }
+ 100% {
+    opacity: 1;
+    transform: translateX(0);
+ }
 }
