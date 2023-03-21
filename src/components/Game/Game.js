@@ -54,14 +54,15 @@ class Game extends Component {
         this.displayPattern();
     }
 
-    displayPattern() {
+     displayPattern() {
         var patternDiv = document.getElementById('pattern');
         patternDiv.innerHTML = '';
         for (var i = 0; i < pattern.length; i++) {
           var color = pattern[i].color;
+          var shape = pattern[i].shape;
           var div = document.createElement('div');
           div.style.backgroundColor = color;
-          div.className = 'shape';
+          div.className = 'shape' + shape;
           patternDiv.appendChild(div);
         }
         document.getElementById('pattern').style.display = 'flex';
