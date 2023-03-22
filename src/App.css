@@ -97,25 +97,63 @@ img{
 }
 
 /*game below*/
+button {
+  padding: 1rem;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0066cc;
+}
+
 #pattern {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
-.shape {
-  width: 50px;
-  height: 50px;
-  margin: 10px;
-  border-radius: 50%;
-  border: 2px solid white;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+#pattern div {
+  width: 2rem;
+  height: 2rem;
+  margin: 0.5rem;
 }
+
+#input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+}
+
+#input:focus {
+  outline: none;
+}
+
+button[type="submit"] {
+  padding: 0.5rem;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0066cc;
+}
+
 
 .square {
-  transform: rotate(45deg);
+  background-color: #555;
 }
 
 .triangle {
@@ -124,6 +162,15 @@ img{
   border-left: 25px solid transparent;
   border-right: 25px solid transparent;
   border-bottom: 50px solid;
+  border-bottom-color: #555;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #555;
+
 }
 
 /*#game {
