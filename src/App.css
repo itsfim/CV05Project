@@ -47,16 +47,13 @@ body{
 }
 .WrapperGame{
   grid-template-columns:repeat(1, 100%);
-  display: inline-grid;
-  max-width: 75%;
+  display: grid;
+  max-width: 65%;
   margin-left: 25%;
   background-color:#D9D9D9;
   padding:3%;
   border-radius: 25px;
   align-content: center;
-}
-.WrapperGame .item{
-  min-width:10%;
 }
 
 h1{
