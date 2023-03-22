@@ -27,7 +27,11 @@ render() {
   return ( 
     <nav>
           <div className="button">
-            <a href="#" onClick={this.handleClick} className="toggleHam"/>
+            <div href="#" onClick={this.handleClick} className="toggleHam">
+            <div className='bar'></div>
+            <div className='bar'></div>
+            <div className='bar'></div>
+            </div>
             {navinfo}
           </div>
           <div className="full">
