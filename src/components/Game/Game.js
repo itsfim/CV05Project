@@ -145,12 +145,17 @@ class Game extends Component {
         var seconds = timer % 60;
         document.getElementById('time').textContent = minutes + ':' + (seconds < 10 ? '0' + seconds : seconds);
         if (timer === 0) {
+		this.sendtodb(score);
             clearInterval(interval);
             alert('Time is up! Your final score is ' + score);
             this.resetGame();
         }
     }
-
+	
+	sendtodb(){
+        //add db script here
+    }
+	
     resetGame() {
         document.getElementById('game').style.display = 'none';
         score = 0;
