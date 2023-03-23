@@ -3,7 +3,7 @@ class Account extends React.Component {
 
     render() {
         return(
-            <div className='grid'>
+            <div className='pageIntro'>
                 <h1 className='h1'>Account Page</h1>
                 <main className='main'>
 
