@@ -6,16 +6,18 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import GameHouse from "./components/Game/gameHouse";
 import Report from './components/Report/Report.js';
 import Account from './components/Account/Account.js'
+import Timer from "./components/Timer/Timer.js";
 
 
 function App() {
+  const Time = <Timer/>;
   return (
     
     <div className="App">
       <header className="App-header">
        <BrowserRouter>
        <div>
-         <Navbar/>
+         <Navbar startTime={Time}/>
          <Routes>
          <Route path='/' exact={true} element={<Homepage/>}/>
          <Route path="homepage" element={<Homepage/>}/>
