@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-//import React, { useState } from 'react';
+import React, { useState, useEffect,Component } from 'react';
 import '../../App.css'
 import './Game.css'
-//import './GameScript'
 
 let colors = ['red', 'blue', 'green', 'yellow', 'purple'];
 let shapes = ['circle','triangle','square'];
@@ -158,7 +156,18 @@ class Game extends Component {
     }
 	
 	sendtodb(){
-        //add db script here
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                 GameID: '4',
+                 DatePlayed: '24/03/23',
+                 
+                })
+        };
+        fetch('http://unn-w20022435.newnumyspace.co.uk/groupProj/api/addgamescore', requestOptions)
+            .then(response => response.json())
+            .then(data => this.setState({ postId: data.id }));
     }
 	
     resetGame() {
