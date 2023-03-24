@@ -1,4 +1,4 @@
-import React, { useState, useEffect,Component } from 'react';
+import React, { useState, useEffect} from 'react';
 import '../../App.css'
 import './Game.css'
 
@@ -13,7 +13,9 @@ let score = 0;
 let timer = 10;
 let interval;
 
-class Game extends Component {
+function Game (props) {
+   
+   /*
     constructor(){
         super();
 
@@ -38,16 +40,16 @@ class Game extends Component {
    }
    changeDisplay(){
        this.setState({display: !this.state.display})
+   }*/
+
+   const loadGame =() =>{
+    //this.setState({display: !this.state.display})
+    resetGame();
+    generatePattern();
+	interval = setInterval(countdown, 1000);
    }
 
-   loadGame(){
-    this.setState({display: !this.state.display})
-    //this.resetGame();
-    this.generatePattern();
-	interval = setInterval(this.countdown, 1000);
-   }
-
-   generatePattern() {
+   const generatePattern = ()=> {
         pattern = [];
         index = 0;
         var numShapes = shapes.length;
@@ -59,10 +61,10 @@ class Game extends Component {
             var color = colors[Math.floor(Math.random() * numColors)];
             pattern.push({shape: shape, color: color});
         }
-        this.displayPattern();
+        displayPattern();
     }
 
-     displayPattern() {
+     const displayPattern= () => {
         var patternDiv = document.getElementById('pattern');
         patternDiv.innerHTML = '';
         for (var i = 0; i < pattern.length; i++) {
@@ -91,16 +93,16 @@ class Game extends Component {
           patternDiv.appendChild(div);
         }
         document.getElementById('pattern').style.display = 'flex';
-	//sets how long the pattern will be on screen for before it is wiped, can be changed as per the clients needs.
-        setTimeout(this.clearPattern, 5000);
-      }
+	    //sets how long the pattern will be on screen for before it is wiped, can be changed as per the clients needs.
+        setTimeout(clearPattern, 5000);
+    }
 
-      clearPattern() {
+    const clearPattern =()=>{
         var patternDiv = document.getElementById('pattern');
         patternDiv.innerHTML = '';
     }
 
-    checkUserInput() {
+    const checkUserInput = () =>{
         var userPattern = [];
         var inputs = document.querySelectorAll('.user-input');
         for (var i = 0; i < inputs.length; i++) {
@@ -116,20 +118,20 @@ class Game extends Component {
         return true;
     }
 
-    handleUserInput() {
-        var isCorrect = this.checkUserInput();
+    const handleUserInput = () =>{
+        var isCorrect = checkUserInput();
         if (isCorrect) {
             score++;
             document.getElementById('score').textContent = score;
             this.generatePatternElement();
-            this.displayPattern();
+            displayPattern();
         } else {
             this.gameOver();
         }
     }
 
 
-    checkPattern() {
+    const checkPattern =()=> {
         var input = document.getElementById('input').value.trim().toLowerCase();
 	//below code expects that the user tyoes the answer in lowercase
         var expected = pattern[index].color.toLowerCase();
@@ -139,7 +141,7 @@ class Game extends Component {
             score++;
             document.getElementById('score').textContent = score;
             if (index === pattern.length) {
-                this.generatePattern();
+                generatePattern();
             }
         } else {
             alert('Wrong pattern! Try again.');
@@ -147,79 +149,71 @@ class Game extends Component {
         document.getElementById('input').value = '';
     }
 
-    countdown() {
+    const countdown = () =>{
         timer--;
         var minutes = Math.floor(timer / 60);
         var seconds = timer % 60;
         document.getElementById('time').textContent = minutes + ':' + (seconds < 10 ? '0' + seconds : seconds);
         if (timer === 0) {
 		//once timer hits 0 call send to db function and input final score to be uploaded to database.
-		this.sendtodb(score);
+		sendtodb(score);
             clearInterval(interval);
             alert('Time is up! Your final score is ' + score);
-            this.resetGame();
+            resetGame();
         }
     }
 	
-	sendtodb(){
-       // e.preventDefault();
-
-        const formData = new FormData();
-            formData.append('DatePlayed', this.sendState.DatePlayed);
-            formData.append('TimeScore', score);
-            formData.append('UserID', this.sendState.UserID);
-    
-        /*const requestOptions = {
-          method: 'POST',
-          headers: {'Accept': 'application/json','Content-Type': 'application/json'},
-          body: formData
-        };*/
-    
-        const requestOptions={
-          method: 'POST',
-          headers: new Headers({'Accept': 'application/json','Content-Type': 'application/json'}),
-          body: formData
-        }
-        console.log("score value = " +score);
-    
-         fetch('http://unn-w20022435.newnumyspace.co.uk/groupProj/api/addgamescore', requestOptions)
-          .then(
-            (response) => response.json())
-          .then(
-            (json) => {
-                console.log(json);
-            })
-    }
-	
-    resetGame() {
-        document.getElementById('game').style.display = 'none';
+    const resetGame=() => {
+        //document.getElementById('game').style.display = 'none';
         score = 0;
-        timer = 300;
+        timer = 10;
         document.getElementById('score').textContent = score;
         document.getElementById('time').textContent = '5:00';
-    this.clearPattern();
-}
-    render() {
-        let change_display = this.state.display ? "none" : "block";
+        clearPattern();
+    }
+    const sendtodb=(event)=>{  
+        const formData = new FormData();
+        formData.append('TimeScore', event.score);
+        //formData.append('film_id', props.film.film_id);
+       
+       
+        fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/addgamescore",
+          {
+            method: 'POST',
+            body: formData
+          })
+        .then(
+          (response) => response.text()
+        )
+        .then(
+          (json) => {
+            console.log(json)
+            props.handleInsert()
+          })
+        .catch(
+          (e) => {
+            console.log(e.message)
+          })
+      }
+        //let change_display = this.state.display ? "none" : "block";
         console.log(interval);
         return(
             //tom
             <div className=''>
                 <h1 className=''>Game Page</h1>
                 <main className='main'>
-                    <button onClick={this.loadGame.bind(this)}>Start Game</button>
-                    <div className={change_display}>
+                    <button onClick={loadGame}>Start Game</button>
+                    <div /*className={change_display}*/>
                     <h2>Remember the pattern:</h2>
                     <div id="pattern"></div>
                         <label for="input">Enter the color of the shape:</label>
                         <input type="text" id="input"/>
-                        <button onClick={this.checkPattern.bind(this)}>Submit</button>
+                        <button onClick={checkPattern}>Submit</button>
                         <p>Time left: <span id="time">5:00</span></p>
                         <p>Score: <span id="score">0</span></p>
                     </div>
                 </main>
             </div>
         )
-    }
 }
 export default Game;
