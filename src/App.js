@@ -57,9 +57,9 @@ function App() {
          <Route exact path="login" element={<SignIn/>}/>
          <Route path="game" element={<GameHouse/>}/>
          <Route path="account" element={<Account/>}/>
-         <Route path="login/Signup" element={<SignUp/>}/>
-         <Route path="login/SignIn" element={<SignIn/>}/>
-         <Route path="login/ForgetUsernamePassword" element={<ForgetUsernamePassword/>}/>
+         <Route path="SignUp" element={<SignUp/>}/>
+         <Route path="SignIn" element={<SignIn/>}/>
+         <Route path="ForgetUsernamePassword" element={<ForgetUsernamePassword/>}/>
          <Route path="report" element={<Report gameScore={gameScore} loading={loading}/>}/>
          </Routes>
        </div>

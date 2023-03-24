@@ -43,11 +43,11 @@ class SignIn extends Component {
               <div className="rectangle-1">
                 <div className='signin-nav'>
                   <div className='signin-tab-active'>
-                    <a className='signin-navlink' href='login/SignIn'> Sign in </a>
+                    <a className='signin-navlink' href='SignIn'> Sign in </a>
                   </div>
                     <div className="signup-tab">
                       <div className="sign-up">
-                        <a className="signup-navlink" href="login/SignUp" title='sign up'>Sign up</a>
+                        <a className="signup-navlink" href="SignUp" title='sign up'>Sign up</a>
                       </div>
                     </div>
                   </div>
@@ -66,7 +66,7 @@ class SignIn extends Component {
                           <br></br>
                           <button className="primary">Sign-in</button>
                           <span class="forget-pw">
-                            <a className="forget-unpw" href="login/ForgetUsernamePassword" title='Forget Username/Password' id="link-reset"> Forget username / password </a>
+                            <a className="forget-unpw" href="ForgetUsernamePassword" title='Forget Username/Password' id="link-reset"> Forget username / password </a>
                           </span>
                         </form>
                       </div>
