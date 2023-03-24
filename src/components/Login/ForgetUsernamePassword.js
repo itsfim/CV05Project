@@ -3,11 +3,12 @@ import '../../App.css'
 import './ForgetUsernamePassword.css'
 
 class ForgetUsernamePassword extends Component {
+
     render() {
         return(
-            <div className='pageIntro'>
-            <h1>Recover username / password</h1>
-            <div className='WrapperLog'>
+            <div className='forgetbgimg'>
+            <div className='forgetIntro'>
+                <h1 className='reUNPW'>Recover username / password</h1>
                 <div className="box1">
                     <main className=''>
                         <div className="App">
@@ -18,7 +19,7 @@ class ForgetUsernamePassword extends Component {
                                         <option value="default">Please select your question below</option>
                                         <option value="Q1">What city you were born in? </option>
                                         <option value="Q2">What was your favorite subject in high school?</option>
-                                        <option value="Q3">In what city or town did your mother and father meet?</option>
+                                        <option value="Q3">In what city or town did your parents meet?</option>
                                         <option value="Q4">What was the first exam you failed?</option>
                                         </select>
                                      </div>
@@ -28,12 +29,12 @@ class ForgetUsernamePassword extends Component {
                                     <input className = "recoverAcc" type="memorableAnswer" name="memorableAnswer" placeholder="Answer..." />
                                 </div>
                                 <br></br>
-                                <button className="primary">Continue</button>
+                                <button className="primary2">Continue</button>
                             </form>
                         </div>
                     </main>
                 </div>
-            </div>
+                </div>
             </div>
         );
     }
