@@ -100,11 +100,11 @@ class SignUp extends Component {
                 <div className="rectangle-2">
                     <div className='signin-nav'>
                         <div className='signin-tab'>
-                            <a className='signin-navlink1' href='login'> Sign in </a>
+                            <a className='signin-navlink1' href='SignIn'> Sign in </a>
                         </div>
                         <div className="signup-tab-active">
                             <div className="sign-up">
-                                <a className="signup-navlink1" href="SignUp" title='sign up'>Sign up</a>
+                                <a className="signup-navlink1" href="login/SignUp" title='sign up'>Sign up</a>
                             </div>
                         </div>
                     </div>
