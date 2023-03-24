@@ -14,22 +14,40 @@
 }
 .main{grid-area: main;}
 
+.pageIn{
+	display: grid;
+	grid-template-columns: 0fr 0fr;
+	grid-template-areas:
+				"h1 h1"
+				"main aside";
+
+    width: calc(100% - 25rem);
+    float: right;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
+
 .accInfo{
     text-align: center;
 }
-button{
+
+button.primary1{
+    background-color: grey;
+    font-size: 18px;
+    margin-top: 55px;
     border: none;
     border-radius: 10px;
     height: 50px;
     width: 100%;
     cursor: pointer;
 }
-button.primary{
-    background-color: lightgrey;
-    font-size: 18px;
-}
-button.secondary{
-    background-color: lightgrey;
+button.secondary1{
+    background-color: grey;
     font-size: 18px;
     margin-top: 100%;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
 }
