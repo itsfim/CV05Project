@@ -207,6 +207,15 @@ button[type="submit"]:hover {
 .block{
   display: block;
 }
+.loginIntro{
+  margin-left:50% ;
+}
+.signupIntro{
+  margin-left:50% ;
+}
+.forgetIntro{
+  margin-left:50% ;
+}
 @media only screen and (max-width: 1200px) {
   .Wrapper{
     display: grid;
@@ -228,6 +237,15 @@ button[type="submit"]:hover {
   }
 .recoverAcc{
     max-width: 100%;
+  }
+  .loginIntro{
+    margin-left:40% ;
+  }
+  .signupIntro{
+    margin-left:40% ;
+  }
+  .forgetIntro{
+    margin-left:40% ;
   }
 }
 @media only screen and (max-width: 796px) {
@@ -268,6 +286,15 @@ button[type="submit"]:hover {
 .button .displayTimer{
 left: 25%;
 right: 25%;
+}
+.loginIntro{
+  margin-left:35% ;
+}
+.signupIntro{
+  margin-left:35% ;
+}
+.forgetIntro{
+  margin-left:35% ;
 }
 }
 

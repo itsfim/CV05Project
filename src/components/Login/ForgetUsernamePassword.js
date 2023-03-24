@@ -6,7 +6,7 @@ class ForgetUsernamePassword extends Component {
 
     render() {
         return(
-            <div className='forgetbgimg'>
+            <div>
             <div className='forgetIntro'>
                 <h1 className='reUNPW'>Recover username / password</h1>
                 <div className="box1">

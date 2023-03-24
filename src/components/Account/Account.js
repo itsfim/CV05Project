@@ -5,9 +5,10 @@ class Account extends Component {
 
     render() {
         return(
-            <div className='pageIn'>
-                <h1 className='h0'>Account</h1>
-                <main className='main'>
+            <div className='pageIntro'>
+            <h1>Account</h1>
+            <div className='WrapperGame'>
+                <main className='item'>
                 <div class="homePageDiv1" id='imageHomePage'>
                     <h2 className='subHeading'>image placeholder</h2>
                 </div>
@@ -19,6 +20,7 @@ class Account extends Component {
                 <button className="primary1">EDIT</button>
                 <button className="secondary1">Delete Account</button>
                 </main>
+            </div>
             </div>
         )
     }

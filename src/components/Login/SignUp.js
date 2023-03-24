@@ -94,7 +94,7 @@ class SignUp extends Component {
     
       render() {
         return (
-            <div className='logbgimg'> 
+            <div> 
             <div className='signupIntro'>
                 <h1 className= 'createA'> Create an Account</h1>
                 <div className="rectangle-2">

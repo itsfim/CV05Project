@@ -37,7 +37,7 @@ class SignIn extends Component {
     
       render() {
         return (
-          <div className='logbgimg'>
+          <div>
             <div className='loginIntro'>
               <h1 className= 'welback'> Welcome back </h1>
               <div className="rectangle-1">
