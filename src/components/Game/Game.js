@@ -20,6 +20,12 @@ class Game extends Component {
         this.state = {
              display: true
         }
+
+    this.sendState = {
+      DatePlayed: "",
+      TimeScore:"",
+      UserID: "",
+    };
         this.loadGame = this.loadGame.bind(this);
         this.generatePattern = this.generatePattern.bind(this);
         this.displayPattern = this.displayPattern.bind(this);
@@ -156,18 +162,34 @@ class Game extends Component {
     }
 	
 	sendtodb(){
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                 GameID: '4',
-                 DatePlayed: '24/03/23',
-                 
-                })
-        };
-        fetch('http://unn-w20022435.newnumyspace.co.uk/groupProj/api/addgamescore', requestOptions)
-            .then(response => response.json())
-            .then(data => this.setState({ postId: data.id }));
+       // e.preventDefault();
+
+        const formData = new FormData();
+            formData.append('DatePlayed', this.sendState.DatePlayed);
+            formData.append('TimeScore', this.sendState.TimeScore);
+            formData.append('UserID', this.sendState.UserID);
+    
+        /*const requestOptions = {
+          method: 'POST',
+          headers: {'Accept': 'application/json','Content-Type': 'application/json'},
+          body: formData
+        };*/
+    
+        const requestOptions={
+          method: 'POST',
+          headers: new Headers({'Accept': 'application/json','Content-Type': 'application/json'}),
+          body: formData
+        }
+        console.log("username value update by sign up page = "+this.state.Username);
+        console.log("form data = "+formData);
+    
+         fetch('http://unn-w20022435.newnumyspace.co.uk/groupProj/api/addplayer', requestOptions)
+          .then(
+            (response) => response.json())
+          .then(
+            (json) => {
+                console.log(json);
+            })
     }
 	
     resetGame() {
@@ -190,7 +212,6 @@ class Game extends Component {
                     <div className={change_display}>
                     <h2>Remember the pattern:</h2>
                     <div id="pattern"></div>
-                        <div className='triangle'></div>
                         <label for="input">Enter the color of the shape:</label>
                         <input type="text" id="input"/>
                         <button onClick={this.checkPattern.bind(this)}>Submit</button>
