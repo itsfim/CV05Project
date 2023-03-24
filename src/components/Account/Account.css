@@ -14,17 +14,6 @@
 }
 .main{grid-area: main;}
 
-.pageIntro{
-	display: grid;
-	grid-template-columns: 0fr 0fr;
-	grid-template-areas:
-				"h0 h0"
-				"main aside";
-
-    width: calc(100% - 10rem);
-    float: right;
-}
-
 .accInfo{
     text-align: center;
 }

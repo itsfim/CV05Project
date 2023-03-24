@@ -7,11 +7,12 @@ class Account extends Component {
         return(
             <div className='pageIntro'>
                 <h1 className='h0'>Account</h1>
-                <main className='main'>
+            <div className='WrapperAcc'>
+                <main className='item'>
                 <div class="homePageDiv1" id='imageHomePage'>
                     <h2 className='subHeading'>image placeholder</h2>
                 </div>
-                <div classname='accInfo'>
+                <div classname='item'>
                     <h3 classname='subHeading1'>Account Info</h3>
                     <h3 classname='subHeading2'>Username</h3>
                     <h3 classname='subHeading3'>No. of games played</h3>
@@ -19,6 +20,7 @@ class Account extends Component {
                 <button className="primary">EDIT</button>
                 <button className="secondary">Delete Account</button>
                 </main>
+            </div>
             </div>
         )
     }

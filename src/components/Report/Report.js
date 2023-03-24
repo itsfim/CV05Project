@@ -20,11 +20,13 @@ function Report(props) {
           </div>
       )
     return (
-        <div className="grid">
-            <h1 className='h1'>Report</h1>
+        <div className='pageIntro'>
+        <h1>Report</h1>
+        <div className="Wrapper">
 			<main className='main'>
 				{usersGameScore}
 			</main>
+        </div>
         </div>
     );
 }

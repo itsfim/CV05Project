@@ -18,9 +18,9 @@ render() {
         navinfo=
         <ul>
              <li><Link to="homepage" onClick={this.handleClick}>Homepage</Link></li>
-             <li><Link to="" onClick={this.handleClick}>Login</Link></li>
+             <li><Link to="login" onClick={this.handleClick}>Login</Link></li>
              <li><Link to="game" onClick={this.handleClick}>Game</Link></li>
-             <li><Link to="account">Account</Link></li>
+             <li><Link to="account" onClick={this.handleClick}>Account</Link></li>
              <li><Link to="#" onClick={this.handleClick}>Close</Link></li>
              <li className='displayTimer'>Session Started at: {time}</li>
         </ul>
@@ -40,6 +40,7 @@ render() {
            <ul>
              <li><Link to="homepage">Homepage</Link></li>
              <li><Link to="login">Login</Link></li>
+             <li><Link to="account">Account</Link></li>
              <li><Link to="game">Game</Link></li>
              <li><Link to="report">Report</Link></li>
               <li className='displayTimer'>Session Started at: {time}</li>

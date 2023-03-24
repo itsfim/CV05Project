@@ -5,8 +5,9 @@ import './ForgetUsernamePassword.css'
 class ForgetUsernamePassword extends Component {
     render() {
         return(
-            <div className='grid-1'>
-                <h1 className='h1'>Recover username / password</h1>
+            <div className='pageIntro'>
+            <h1>Recover username / password</h1>
+            <div className='WrapperLog'>
                 <div className="box1">
                     <main className=''>
                         <div className="App">
@@ -32,6 +33,7 @@ class ForgetUsernamePassword extends Component {
                         </div>
                     </main>
                 </div>
+            </div>
             </div>
         );
     }

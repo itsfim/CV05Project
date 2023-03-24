@@ -5,11 +5,14 @@ import React, {useState, useEffect} from "react";
 import Homepage from './components/Home/homepage.js';
 import NotFound from "./components/Errors/notfound.js";
 import Navbar from "./components/Navbar/handleNavbar";
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Link, Routes, Route} from 'react-router-dom';
 import GameHouse from "./components/Game/gameHouse";
 import Report from './components/Report/Report.js';
 import Account from './components/Account/Account.js'
 import Timer from "./components/Timer/Timer.js";
+import SignIn from "./components/Login/SignIn.js";
+import SignUp from "./components/Login/SignUp.js";
+import ForgetUsernamePassword from "./components/Login/ForgetUsernamePassword";
 
 function App() {
   const Time = <Timer/>;
@@ -42,8 +45,8 @@ function App() {
   const handleInsert = () => {setInsert(insert+1)}
   return (
     
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <header>
        <BrowserRouter>
        <div>
          <Navbar startTime={Time}/>
@@ -51,8 +54,12 @@ function App() {
          <Route path='/' exact={true} element={<Homepage/>}/>
          <Route path="homepage" element={<Homepage/>}/>
          <Route path="*" element={<NotFound/>}/>
+         <Route exact path="login" element={<SignIn/>}/>
          <Route path="game" element={<GameHouse/>}/>
-         <Route path="login" element={<Account/>}/>
+         <Route path="account" element={<Account/>}/>
+         <Route path="login/Signup" element={<SignUp/>}/>
+         <Route path="login/SignIn" element={<SignIn/>}/>
+         <Route path="login/ForgetUsernamePassword" element={<ForgetUsernamePassword/>}/>
          <Route path="report" element={<Report gameScore={gameScore} loading={loading}/>}/>
          </Routes>
        </div>

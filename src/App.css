@@ -43,6 +43,13 @@ body{
   max-width: 75%;
   margin-left: 25%;
 }
+.WrapperLog{
+  grid-template-columns: repeat(1,100%);
+  display: inline-grid;
+  max-width: 75%;
+  margin-left: 45%;
+  margin-top: 10%;
+}
 .WrapperGame{
   grid-template-columns:repeat(1, 100%);
   display: grid;
@@ -50,6 +57,17 @@ body{
   margin-left: 25%;
   background-color:#D9D9D9;
   padding:3%;
+  border-radius: 25px;
+  align-content: center;
+}
+.WrapperAcc{
+  grid-template-columns:repeat(1, 100%);
+  display: grid;
+  max-width: 65%;
+  margin-left: 25%;
+  background-color:#D9D9D9;
+  padding:3%;
+  height: fit-content;
   border-radius: 25px;
   align-content: center;
 }
@@ -200,6 +218,17 @@ button[type="submit"]:hover {
   .displayTimer{
     left: 15%;
   }
+  .WrapperLog{
+    max-width: 75%;
+    margin-left: 35%;
+    margin-top: 10%;
+  }
+.box1{
+    max-width:500px;
+  }
+.recoverAcc{
+    max-width: 100%;
+  }
 }
 @media only screen and (max-width: 796px) {
 .Wrapper{
@@ -208,6 +237,17 @@ button[type="submit"]:hover {
   padding:auto;
   align-items: center;
   margin: auto;
+}
+.WrapperLog{
+  max-width: 75%;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+.rectangle-1, .rectangle-2,.box1{
+  max-width:350px;
+}
+.input-group .loginInput, .recoverAcc1, .recoverAcc{
+  max-width: 100%;
 }
 .WrapperGame{
   display: grid;

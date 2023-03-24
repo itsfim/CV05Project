@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../App.css'
 import './SignIn.css'
+import { Link } from 'react-router-dom';
 
 class SignIn extends Component {
 
@@ -37,8 +38,9 @@ class SignIn extends Component {
     
       render() {
         return (
-            <div className='grid'>
-              <h1 className= 'h1'> Welcome back </h1>
+          <div className='pageIntro'>
+          <h1> Welcome back </h1>
+            <div className='WrapperLog'>
               <div className="rectangle-1">
                 <div className='signin-nav'>
                   <div className='signin-tab-active'>
@@ -46,7 +48,7 @@ class SignIn extends Component {
                   </div>
                     <div className="signup-tab">
                       <div className="sign-up">
-                        <a className="signup-navlink" href="SignUp" title='sign up'>Sign up</a>
+                        <Link to='Signup'>Sign up</Link>
                       </div>
                     </div>
                   </div>
@@ -65,13 +67,14 @@ class SignIn extends Component {
                           <br></br>
                           <button className="primary">Sign-in</button>
                           <span class="forget-pw">
-                            <a className="forget-unpw" href="ForgetUsernamePassword" title='Forget Username/Password' id="link-reset"> Forget username / password </a>
+                          <Link to='ForgetUsernamePassword'>Forgot Username / Password?</Link>
                           </span>
                         </form>
                       </div>
                     </main>
                 </div> 
               </div> 
+              </div>
         );
       }
 }

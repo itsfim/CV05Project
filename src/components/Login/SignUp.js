@@ -37,8 +37,10 @@ class SignUp extends Component {
     
       render() {
         return (
-            <div className='grid'> 
-                <h1 className= 'h1'> Create and Account</h1>
+          <div className='pageIntro'>
+          <h1> Create an Account</h1>
+            <div className='WrapperLog'> 
+                
                 <div className="rectangle-2">
                     <div className='signin-nav'>
                         <div className='signin-tab'>
@@ -85,7 +87,7 @@ class SignUp extends Component {
             </main>
             </div>
             </div>
-          
+            </div>
         );
       }
 }
