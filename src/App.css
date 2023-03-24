@@ -243,8 +243,13 @@ button[type="submit"]:hover {
   margin-left: 10%;
   margin-top: 10%;
 }
+.logbgimg{
+  position: relative;
+  max-width: 600px;
+}
 .rectangle-1, .rectangle-2,.box1{
   max-width:350px;
+  margin-left: 20px;
 }
 .input-group .loginInput, .recoverAcc1, .recoverAcc{
   max-width: 100%;
