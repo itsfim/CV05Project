@@ -10,7 +10,7 @@ let shapes = ['circle','triangle','square'];
 let pattern = [];
 let index = 0;
 let score = 0;
-let timer = 300;
+let timer = 10;
 let interval;
 
 class Game extends Component {
@@ -166,7 +166,7 @@ class Game extends Component {
 
         const formData = new FormData();
             formData.append('DatePlayed', this.sendState.DatePlayed);
-            formData.append('TimeScore', this.sendState.TimeScore);
+            formData.append('TimeScore', score);
             formData.append('UserID', this.sendState.UserID);
     
         /*const requestOptions = {
@@ -180,10 +180,9 @@ class Game extends Component {
           headers: new Headers({'Accept': 'application/json','Content-Type': 'application/json'}),
           body: formData
         }
-        console.log("username value update by sign up page = "+this.state.Username);
-        console.log("form data = "+formData);
+        console.log("score value = " +score);
     
-         fetch('http://unn-w20022435.newnumyspace.co.uk/groupProj/api/addplayer', requestOptions)
+         fetch('http://unn-w20022435.newnumyspace.co.uk/groupProj/api/addgamescore', requestOptions)
           .then(
             (response) => response.json())
           .then(
