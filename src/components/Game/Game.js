@@ -48,6 +48,7 @@ class Game extends Component {
         index = 0;
         var numShapes = shapes.length;
         var numColors = colors.length;
+	//increases the pattern length each time the user is over a certain score, can be changed as per clients needs.
         var patternLength = score >= 20 ? 5 : score >= 15 ? 4 : score >= 10 ? 3 : score >= 5 ? 2 : 1;
         for (var i = 0; i < patternLength; i++) {
             var shape = shapes[Math.floor(Math.random() * numShapes)];
@@ -86,6 +87,7 @@ class Game extends Component {
           patternDiv.appendChild(div);
         }
         document.getElementById('pattern').style.display = 'flex';
+	//sets how long the pattern will be on screen for before it is wiped, can be changed as per the clients needs.
         setTimeout(this.clearPattern, 5000);
       }
 
@@ -125,7 +127,9 @@ class Game extends Component {
 
     checkPattern() {
         var input = document.getElementById('input').value.trim().toLowerCase();
+	//below code expects that the user tyoes the answer in lowercase
         var expected = pattern[index].color.toLowerCase();
+	//if answer is as expected then increase the users score by one
         if (input === expected) {
             index++;
             score++;
@@ -145,6 +149,7 @@ class Game extends Component {
         var seconds = timer % 60;
         document.getElementById('time').textContent = minutes + ':' + (seconds < 10 ? '0' + seconds : seconds);
         if (timer === 0) {
+		//once timer hits 0 call send to db function and input final score to be uploaded to database.
 		this.sendtodb(score);
             clearInterval(interval);
             alert('Time is up! Your final score is ' + score);
