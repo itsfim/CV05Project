@@ -1,3 +1,17 @@
 h1{
     text-align: center;
 }
+
+.reportDiv{
+    background-color: grey;
+    margin: 2em;
+    padding: 2em;
+    width: max-content;
+}
+.grid{
+    margin-left: 600px;
+}
+
+.reportP{
+    font-weight: bold;
+}

@@ -1,29 +1,32 @@
 import React from 'react';
-
-
-class Report extends React.Component {
-    render() {
-        return(
-            <div className='pageIntro'>
-                <h1 className='h1'>Report Page</h1>
-                <main className='main'>
-                    <php
-                	$sql = "SELECT * FROM GameScore WHERE userID = '1' ORDER BY Dateplayed";
-                	$result = $db.query($sql);
-
-                	if ($result->num_rows > 0) {
-  						echo "<table><tr><th>ID</th><th>Name</th></tr>";
-    					while($row = $result->fetch_assoc()) {
-   								 echo "<tr><td>".$row["UserID"]."</td><td>".$row["Dateplayed"]." ".$row["TimeScore"]."</td></tr>";
- 						 }
-  						echo "</table>";
-                	} else {
-  						echo "0 results";
-						}
-						?>
-                </main>
-            </div>
-        )
-    }
+import "./Report.css"
+import '../../App.css'
+ 
+/**
+ * Report page component
+ * 
+ * This page will show information about Gamscores for users.
+ * 
+ * @author Max Endersby
+ */
+function Report(props) {
+ 
+    const usersGameScore = props.gameScore?.map(
+        (value, key) => <div className ="reportDiv" key={key}>
+            <p className='reportP'>GameID: {value.GameID} </p>
+			<p className='reportP'>UserID: {value.UserID} </p>
+			<p className='reportP'>DatePlayed: {value.DatePlayed} </p>
+			<p className='reportP' >TimeScore: {value.TimeScore}</p>
+          </div>
+      )
+    return (
+        <div className="grid">
+            <h1 className='h1'>Report</h1>
+			<main className='main'>
+				{usersGameScore}
+			</main>
+        </div>
+    );
 }
+ 
 export default Report;
