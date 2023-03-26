@@ -1,7 +1,5 @@
 import "./App.css";
-
 import React, {useState, useEffect} from "react";
-
 import Homepage from './components/Home/homepage.js';
 import NotFound from "./components/Errors/notfound.js";
 import Navbar from "./components/Navbar/handleNavbar";
