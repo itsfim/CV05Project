@@ -1,6 +1,6 @@
 import '../../App.css'
 import './Game.css'
-import jwt_decode from "jwt-decode"; 
+import jwt_decode from "jwt-decode";
 
 let colors = ['red', 'blue', 'green', 'yellow', 'purple'];
 let shapes = ['circle','triangle','square'];
@@ -10,15 +10,10 @@ let shapes = ['circle','triangle','square'];
 let pattern = [];
 let index = 0;
 let score = 0;
-let timer = 10;
+let timer = 300;
 let interval;
 
 function Game (props) {
-
-//const token =
-//const decoded = jwt_decode(token);
-//console.log("decoded token = "+decoded);
-
    const loadGame =() =>{
     //this.setState({display: !this.state.display})
     resetGame();
@@ -143,18 +138,39 @@ function Game (props) {
     const resetGame=() => {
         //document.getElementById('game').style.display = 'none';
         score = 0;
-        timer = 10;
+        timer = 300;
         document.getElementById('score').textContent = score;
         document.getElementById('time').textContent = '5:00';
         clearPattern();
     }
-    const sendtodb=(event)=>{  
+
+    /**
+     * get current date to be sent to db
+     * @author Max Endersby
+     */
+    const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
+    /**
+     * get token from login -> decode ->get userID from it
+     * @author Max Endersby
+     */
+        const token = localStorage.getItem('token');
+        const decoded = jwt_decode(token);
+        const stringifyToken = JSON.stringify(decoded);
+        const parseToken = JSON.parse(stringifyToken);
+        const userID = parseToken.sub;
+    /**
+     * sendtodb -> get 3 varible needed send to db based on table name
+     * @author Max Endersby
+     */
+    const sendtodb=()=>{  
         const formData = new FormData();
-        formData.append('TimeScore', event.score);
-        formData.append('DatePlayed', props.date);
-        //formData.append('UserID', props.userID);
+        formData.append('TimeScore', score);
+        formData.append('DatePlayed', date);
+        formData.append('UserID', userID);
        
-       
+       //fetch api -> post form data 
         fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/addgamescore",
           {
             method: 'POST',
@@ -173,8 +189,8 @@ function Game (props) {
             console.log(e.message)
           })
     }
+
         return(
-            //tom
             <div>
                     <div className=''>
                         <h1 className=''>Game Page</h1>
@@ -191,7 +207,7 @@ function Game (props) {
                             </div>
                         </main>
                     </div>
-                </div>
+            </div>
         )
 }
 export default Game;

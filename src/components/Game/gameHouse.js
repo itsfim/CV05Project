@@ -10,7 +10,7 @@ function GameHouse (props){
           {props.authenticated && <div>
             <div className="pageIntro"><h1>Game!</h1>
           <div className='WrapperGame'>
-            <Game className='item' date={date} />
+            <Game className='item'/>
           </div>
         </div>
           </div>}
