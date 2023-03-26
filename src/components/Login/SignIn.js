@@ -93,7 +93,7 @@ function SignIn(props){
                     <div className="App">
                       <form className="form">
                         <div className="input-group">
-                          <label for="username">Username</label> <br></br>
+                          <label for="username">Username</label> 
                           <input 
                             className = "loginInput"
                             type="text" 
@@ -103,8 +103,8 @@ function SignIn(props){
                           />       
                         </div>
                           <div className="input-group">
-                            <br></br>
-                            <label for="password">Password</label> <br></br>
+                            
+                            <label for="password">Password</label> 
                             <input 
                               className = "loginInput"
                               type="password" 
@@ -113,7 +113,7 @@ function SignIn(props){
                               onChange={handlePassword} 
                             />   
                           </div>
-                          <br></br>
+                          
                           <input className="primary2" type="button" value="Submit" onClick={handleClick}/>
                           <span class="forget-pw">
                             <a className="forget-unpw" href="ForgetUsernamePassword" title='Forget Username/Password' id="link-reset"> Forget username / password </a>

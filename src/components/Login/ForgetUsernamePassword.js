@@ -61,55 +61,55 @@ function ForgetUsernamePassword (props) {
                 {props.authenticated && <div>
               {shouldRedirect && <Navigate replace to="/account" />}
               </div>}
-              {!props.authenticated && <div>
-            <div className='forgetIntro'>
-                <h1 className='reUNPW'>Recover username / password</h1>
-                <div className="box1">
-                    <main className=''>
-                        <div className="App">
-                            <form className="form">
-                            <div className="rememberParent">
-                                <div className="input-group">
-                                    <label>Do you remember any of the sign-up information</label>
-                                        <select className = "remInfo">
-                                        <option value="default">Select an option below</option>
-                                        <option value={loginInfo}>Username </option>
-                                        <option value={loginInfo}>Email</option>
-                                        <option value={loginInfo}>Password</option>
-                                        </select>
-                                     </div>
-                                    <div className="input-group">
-                                    <br></br>
-                                    <input value={loginInfo} onChange={handleLoginInfo} className = "remInfo" type="rememberAnswer" name="rememberAnswer" placeholder="Please put an information..." />
-                                </div>
-                                </div>
+              {!props.authenticated && 
+            
+                <div>
+                    <div className='forgetIntro'>
+                    <h1 className='reUNPW'>Recover username / password</h1>
+                        <div className="box1">
+                            <main className=''>
+                                <div className="App">
+                                    
+                                    <form className="form">
+                                    
+                                        <div className="forget-input">
+                                            <label>Do you remember any of the sign-up information</label>
+                                            <select className = "forgetInput">
+                                                <option value="default">Select an option below</option>
+                                                <option value={loginInfo}>Username </option>
+                                                <option value={loginInfo}>Email</option>
+                                                <option value={loginInfo}>Password</option>
+                                            </select>
+                                        </div>
 
-                                <div className="memorableParent">
-                                <div className="input-group">
-                                    <label>Memorable Question</label>
-                                        <select className = "recoverAcc">
-                                        <option value="default">Please select your question below</option>
-                                        <option value={memQ}>What city you were born in? </option>
-                                        <option value={memQ}>What was your favorite subject in high school?</option>
-                                        <option value={memQ}>In what city or town did your parents meet?</option>
-                                        <option value={memQ}>What was the first exam you failed?</option>
+                                        <div className="forget-input">
+                                            <input value={loginInfo} onChange={handleLoginInfo} className = "forgetInput" name="rememberAnswer" placeholder="Please put an information..." />
+                                        </div>
+
+                                        <div className="forget-input">
+                                        <label>Memorable Question</label>
+                                        <select className = "forgetInput">
+                                            <option value="default">Please select your question below</option>
+                                            <option value={memQ}>What city you were born in? </option>
+                                            <option value={memQ}>What was your favorite subject in high school?</option>
+                                            <option value={memQ}>In what city or town did your parents meet?</option>
+                                            <option value={memQ}>What was the first exam you failed?</option>
                                         </select>
-                                     </div>
-                                    <div className="input-group">
-                                    <br></br>
-                                    <label for="memorableAnswer">Memorable Answer</label> <br></br>
-                                    <input value={memQ} onChange={handleMemQ} className = "recoverAcc" type="memorableAnswer" name="memorableAnswer" placeholder="Answer..." />
+                                        </div>
+                                            
+                                        <div className="forget-input">
+                                            <label for="memorableAnswer">Memorable Answer</label>
+                                            <input className = "forgetInput" value={memQ} onChange={handleMemQ} name="memorableAnswer" placeholder="Answer..." />
+                                        </div>
+                                                       
+                                        <input className="primary2" type="button" value="Continue" onClick={handleClick} />
+                                    </form>
                                 </div>
-                                </div>
-                                <br></br>
-                                <button className="primary2" onClick={handleClick}>Continue</button>
-                            </form>
+                            </main>
                         </div>
-                    </main>
-                </div>
-                </div>
+                    </div>
                 </div>}
             </div>
-        );
+    );
 }
 export default ForgetUsernamePassword;
