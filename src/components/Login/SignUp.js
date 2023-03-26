@@ -1,98 +1,52 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import '../../App.css'
 import './SignUp.css'
 
-class SignUp extends Component {
+//author Phufah Nontamongkoltorn
 
-  constructor(props) {
-    super(props);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+function SignUp (){
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    this.state = {
-      email: "",
-      Username:"",
-      Password: "",
-    };
-  }
-
-  onChangeEmail(e) {
-    this.setState({
-      email: e.target.value,
-    });
-  }
-
-  onChangeUsername(e) {
-    this.setState({
-      Username: e.target.value,
-    });
-  }
-
-  onChangePassword(e) {
-    this.setState({
-      Password: e.target.value,
-    });
-  }
-
-  handleSubmit (e) {
-    e.preventDefault();
-
-    const formData = new FormData();
-        formData.append('Username', this.state.Username);
-        formData.append('email', this.state.email);
-        formData.append('Password', this.state.Password);
-
-    /*const requestOptions = {
-      method: 'POST',
-      headers: {'Accept': 'application/json','Content-Type': 'application/json'},
-      body: formData
-    };*/
-
-    const requestOptions={
-      method: 'POST',
-      headers: new Headers({'Accept': 'application/json','Content-Type': 'application/json'}),
-      body: formData
+    const handleUsername = (event) => {
+        setUsername(event.target.value);
     }
-    console.log("username value update by sign up page = "+this.state.Username);
-    console.log("form data = "+formData);
-
-     fetch('http://unn-w20022435.newnumyspace.co.uk/groupProj/api/addplayer', requestOptions)
-      .then(
-        (response) => response.json())
-      .then(
-        (json) => {
-            console.log(json);
-        })
+    const handleEmail = (event) => {
+      setEmail(event.target.value);
   }
-    /*
-        if (!e.target.username.value) {
-          alert("Username is required");
-        } else if (!e.target.username.value) {
-          alert("Valid username is required");
-        } else if (!e.target.password.value) {
-          alert("Password is required");
-        } else if (
-          e.target.username.value === "Username" &&
-          e.target.password.value === "123456"
-        ) {
-          alert("Successfully logged in");
-          e.target.username.value = "";
-          e.target.password.value = "";
-        } else {
-          alert("Wrong username or password combination");
-        }
-      };
-      */
-    
-      /*handleClick = e => {
-        e.preventDefault();
-    
-        alert("Goes to registration page");
-      };*/
-    
-      render() {
+ 
+    const handlePassword = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const handleClick = (event) => {
+      const formData = new FormData();
+      formData.append('Username', username);
+      formData.append('email', email);
+      formData.append('Password', password);
+
+        fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/addplayer",
+        {
+            method: 'POST', 
+            body: formData          
+        })
+        .then(
+            (response) => {   
+                return response.json()
+            }
+        )
+        .then(
+            (json) => {
+                console.log(json);
+            }
+        )
+        .catch(
+            (e) => {
+                console.log(e.message)
+            }
+        )
+    }
         return (
             <div> 
             <div className='signupIntro'>
@@ -109,67 +63,49 @@ class SignUp extends Component {
                         </div>
                     </div>
                     <main className=''>
-                        <div className="App">
-                        <form className="form">
-                            <div className="input-group">
-                <label for="username">Username</label> <br></br>
-                <input 
-                  className = "loginInput"
-                  type="username" 
-                  name="username"
-                  placeholder="Username..."
-                  value={this.state.Username} 
-                  onChange={this.onChangeUsername} 
-                />        
-              </div>
-              <div className="input-group">
-                <label for="email">Email</label> <br></br>
-                <input 
-                  className = "loginInput"
-                  type="email" 
-                  name="email"
-                  placeholder="Email..."
-                  value={this.state.email} 
-                  onChange={this.onChangeEmail} 
-                />        
-              </div>
-              <div className="input-group">
-              <br></br>
-                <label for="password">Password</label> <br></br>
-                <input 
-                  className = "loginInput"
-                  type="password" 
-                  placeholder="Password..." 
-                  value={this.state.Password} 
-                  onChange={this.onChangePassword} 
-                />
-                <div className='memdiv'>
-                <label>Memorable Question</label>
-                <select className = "recoverAcc1">
-                <option value="default">Please select your question below</option>
-                <option value="Q1">What city you were born in? </option>
-                <option value="Q2">What was your favorite subject in high school?</option>
-                <option value="Q3">In what city or town did your parents meet?</option>
-                <option value="Q4">What was the first exam you failed?</option>
-                </select>
+                    <div className="App">
+                    <form className="form">
+                      
+                      <div className="signup-input">
+                        <label for="username">Username</label>
+                        <input className = "signupInput" type="text" placeholder ="Username..." value={username} onChange={handleUsername} />       
+                      </div>
+
+                      <div className="signup-input">
+                        <label for="email">Email</label> 
+                        <input className = "signupInput" type="text" placeholder="Email..." value={email} onChange={handleEmail} />                
+                      </div>
+                    
+                      <div className="signup-input">
+                        <label for="password">Password</label>
+                        <input className = "signupInput" type="password" placeholder="Password..." value={password} onChange={handlePassword} />        
+                      </div>
+                      
+                      <div className="signup-input">
+                        <label for="memorableQuestion">Memorable Question</label>
+                        <select className = "signupInput">
+                        <option value="default">Please select your question below</option>
+                        <option value="Q1">What city you were born in? </option>
+                        <option value="Q2">What was your favorite subject in high school?</option>
+                        <option value="Q3">In what city or town did your parents meet?</option>
+                        <option value="Q4">What was the first exam you failed?</option>
+                        </select>
+                      </div>
+                      
+                      <div className="signup-input">
+                        <label for="memorableAnswer">Memorable Answer</label>
+                        <input className = "signupInput" type="memorableAnswer" name="memorableAnswer" placeholder="Answer..." />
+                        <p className='notiA'>*Please take note of the question and answer above to recover your account</p>
+                      </div>
+
+                      <input className="primary2" type="button" value="Submit" onClick={handleClick} />
+                    </form>
+                    </div>
+                    </main>
                 </div>
-                </div>
-                <div className="input-group">
-                <br></br>
-                <label for="memorableAnswer">Memorable Answer</label> <br></br>
-                <input className = "recoverAcc1" type="memorableAnswer" name="memorableAnswer" placeholder="Answer..." />
-              </div>
-              
-              <br></br>
-              <button value="Submit" onClick={this.handleSubmit}>Submit</button>
-              </form>
-          </div>
-            </main>
             </div>
             </div>
-            </div>
-        );
-      }
+          );
 }
 
 export default SignUp;

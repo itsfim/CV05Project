@@ -8,13 +8,13 @@
 background-color: #fffdfd ;
 border-radius: 10px;
 box-shadow: 3px 2px 8px 3px #00000040;
-height: 660px;
+height: 700px;
 width: 564px;
 margin-top: 1px;
 margin-left: -100px;
 }
 
-.recoverAcc1 {
+.signupInput {
 background-color: lightgray;
 border: none;
 border-radius: 10px;
@@ -31,10 +31,6 @@ display: grid;
 animation-name: fadeIn;
 animation-duration: 1s;
 
-}
-
-.memdiv{
-margin-top: 20px;
 }
 
 .signin-navlink1{
@@ -65,4 +61,15 @@ text-decoration: none;
 }
 a:active {
 text-decoration: none;
+}
+
+.notiA{
+    font-size: 12px;
+    color: darkred;
+}
+
+.signup-input{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
 }
