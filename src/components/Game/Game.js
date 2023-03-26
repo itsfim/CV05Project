@@ -1,5 +1,6 @@
 import '../../App.css'
 import './Game.css'
+import { Navigate } from 'react-router-dom';
 
 let colors = ['red', 'blue', 'green', 'yellow', 'purple'];
 let shapes = ['circle','triangle','square'];
@@ -167,22 +168,31 @@ function Game (props) {
             console.log(e.message)
           })
     }
+
+    const shouldRedirect = true;
         return(
             //tom
-            <div className=''>
-                <h1 className=''>Game Page</h1>
-                <main className='main'>
-                    <button onClick={loadGame}>Start Game</button>
-                    <div /*className={change_display}*/>
-                    <h2>Remember the pattern:</h2>
-                    <div id="pattern"></div>
-                        <label for="input">Enter the color of the shape:</label>
-                        <input type="text" id="input"/>
-                        <button onClick={checkPattern}>Submit</button>
-                        <p>Time left: <span id="time">5:00</span></p>
-                        <p>Score: <span id="score">0</span></p>
+            <div>
+                {!props.authenticated && <div>
+                    {shouldRedirect && <Navigate replace to="/account" />}
+                </div>}
+                {props.authenticated && <div>
+                    <div className=''>
+                        <h1 className=''>Game Page</h1>
+                        <main className='main'>
+                            <button onClick={loadGame}>Start Game</button>
+                            <div /*className={change_display}*/>
+                            <h2>Remember the pattern:</h2>
+                            <div id="pattern"></div>
+                                <label for="input">Enter the color of the shape:</label>
+                                <input type="text" id="input"/>
+                                <button onClick={checkPattern}>Submit</button>
+                                <p>Time left: <span id="time">5:00</span></p>
+                                <p>Score: <span id="score">0</span></p>
+                            </div>
+                        </main>
                     </div>
-                </main>
+                </div>}
             </div>
         )
 }
