@@ -35,7 +35,7 @@ function ForgetUsernamePassword (props) {
           console.log(memorableA);
           console.log(encodedString);
 
-        fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/auth",
+        fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/altauth",
         {
             method: 'POST', 
             headers: new Headers( { "Authorization": "Basic " +encodedString })           
