@@ -214,6 +214,14 @@ button[type="submit"]:hover {
   margin-left:50% ;
 }
 
+.goSignin{
+  font-weight: 500;
+  font-size: 18px;
+  width: 75%;
+  margin-left: 25%;
+  margin-top: 10%;
+  text-align: center;
+}
 
 .primary2{
   background-color: lightgrey;
@@ -269,7 +277,7 @@ button[type="submit"]:hover {
     margin-left: 250px;
 }
 .goSignin{
-width: 100px;
+margin-left: 10%  ;
 }
 }
 @media only screen and (max-width: 796px) {
@@ -298,6 +306,11 @@ width: 100px;
   margin-left: 20px;
 }
 .input-group .loginInput, .signupInput, .remInfo, .forgetInput{
+  max-width: 100%;
+}
+.goSignin{
+  margin-top: 20%;
+  margin-left: 15%;
   max-width: 100%;
 }
 .WrapperGame{
