@@ -21,6 +21,7 @@ render() {
              <li><Link to="login" onClick={this.handleClick}>Login</Link></li>
              <li><Link to="game" onClick={this.handleClick}>Game</Link></li>
              <li><Link to="account" onClick={this.handleClick}>Account</Link></li>
+             <li><Link to="report">Report</Link></li>
              <li><Link to="#" onClick={this.handleClick}>Close</Link></li>
              <li className='displayTimer'>Session Started at: {time}</li>
         </ul>
