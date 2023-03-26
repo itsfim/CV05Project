@@ -266,7 +266,7 @@ button[type="submit"]:hover {
   }
   .signout-input {
     margin-top: 100px;
-    margin-left: 100px;
+    margin-left: 250px;
 }
 }
 @media only screen and (max-width: 796px) {

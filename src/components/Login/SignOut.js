@@ -18,7 +18,7 @@ function Login(props){
       }
 
     return(
-        <div className="Wrapper">
+        <div>
             {props.authenticated && <div className="signout-input">
                 <p className='signout-text'>If you wish to exit out of the account please press the button below</p>
                 <input className="primary3" type="button" value="Sign Out" onClick={handleSignOut}/>
