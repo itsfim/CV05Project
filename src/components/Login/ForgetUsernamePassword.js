@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
+import {Buffer} from 'buffer';
 import '../../App.css'
 import './ForgetUsernamePassword.css'
 
@@ -7,7 +8,7 @@ import './ForgetUsernamePassword.css'
 
 function ForgetUsernamePassword (props) {
     const [loginInfo, setLoginInfo] = useState("");
-    const [memQ, setMemQ] = useState("");
+    const [memorableA, setMemA] = useState("");
   
   useEffect(
     () => {
@@ -20,15 +21,19 @@ function ForgetUsernamePassword (props) {
         setLoginInfo(event.target.value);
     }
 
-    const handleMemQ = (event) => {
-        setMemQ(event.target.value);
+    const handleMemA = (event) => {
+        setMemA(event.target.value);
     }
 
     const handleClick = () => {
 
         const encodedString = Buffer.from(
-            loginInfo + ":" + memQ
+            loginInfo + ":" + memorableA
           ).toString('base64');
+
+          console.log(loginInfo);
+          console.log(memorableA);
+          console.log(encodedString);
 
         fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/auth",
         {
@@ -76,9 +81,9 @@ function ForgetUsernamePassword (props) {
                                             <label>Do you remember any of the sign-up information</label>
                                             <select className = "forgetInput">
                                                 <option value="default">Select an option below</option>
-                                                <option value={loginInfo}>Username </option>
-                                                <option value={loginInfo}>Email</option>
-                                                <option value={loginInfo}>Password</option>
+                                                <option>Username </option>
+                                                <option>Email</option>
+                                                <option>Password</option>
                                             </select>
                                         </div>
 
@@ -90,16 +95,16 @@ function ForgetUsernamePassword (props) {
                                         <label>Memorable Question</label>
                                         <select className = "forgetInput">
                                             <option value="default">Please select your question below</option>
-                                            <option value={memQ}>What city you were born in? </option>
-                                            <option value={memQ}>What was your favorite subject in high school?</option>
-                                            <option value={memQ}>In what city or town did your parents meet?</option>
-                                            <option value={memQ}>What was the first exam you failed?</option>
+                                            <option>What city you were born in? </option>
+                                            <option>What was your favorite subject in high school?</option>
+                                            <option>In what city or town did your parents meet?</option>
+                                            <option>What was the first exam you failed?</option>
                                         </select>
                                         </div>
                                             
                                         <div className="forget-input">
                                             <label for="memorableAnswer">Memorable Answer</label>
-                                            <input className = "forgetInput" value={memQ} onChange={handleMemQ} name="memorableAnswer" placeholder="Answer..." />
+                                            <input className = "forgetInput" value={memorableA} onChange={handleMemA} name="memorableAnswer" placeholder="Answer..." />
                                         </div>
                                                        
                                         <input className="primary2" type="button" value="Continue" onClick={handleClick} />

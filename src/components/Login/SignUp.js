@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import '../../App.css'
 import './SignUp.css'
 
@@ -25,7 +25,6 @@ function SignUp (props){
 
     const handleMemQ = (event) => {
       setMemQ(event.target.value);
-      console.log(event.target.value);
     }
     const handleMemA = (event) => {
       setMemA(event.target.value);
@@ -59,6 +58,15 @@ function SignUp (props){
                 console.log(e.message)
             }
         )
+    }
+    const navigate = useNavigate();
+    const changePage = () => {
+      navigate('/SignIn');
+    }
+
+    const signUpSubmit = () => {
+      changePage();
+      handleClick();
     }
 
     const shouldRedirect = true;
@@ -117,7 +125,7 @@ function SignUp (props){
                         <p className='notiA'>*Please take note of the question and answer above to recover your account</p>
                       </div>
 
-                      <input className="primary2" type="button" value="Submit" onClick={handleClick} />
+                      <input className="primary2" type="button" value="Submit" onClick={signUpSubmit} />
                     </form>
                     </div>
                     </main>
