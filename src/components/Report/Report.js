@@ -19,14 +19,23 @@ function Report(props) {
 			<p className='reportP' >TimeScore: {value.TimeScore}</p>
           </div>
       )
+
+      const shouldRedirect = true;
     return (
-        <div className='pageIntro'>
-        <h1>Report</h1>
-        <div className="Wrapper">
-			<main className='main'>
-				{usersGameScore}
-			</main>
-        </div>
+        <div>
+            {!props.authenticated && <div>
+                {shouldRedirect && <Navigate replace to="/account" />}
+            </div>}
+            {props.authenticated && <div>
+                <div className='pageIntro'>
+                    <h1>Report</h1>
+                    <div className="Wrapper">
+                        <main className='main'>
+                            {usersGameScore}
+                        </main>
+                    </div>
+                </div>
+            </div>}
         </div>
     );
 }
