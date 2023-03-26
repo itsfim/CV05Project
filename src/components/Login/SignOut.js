@@ -24,8 +24,10 @@ function Login(props){
                 <input className="primary3" type="button" value="Sign Out" onClick={handleSignOut}/>
           </div>}
           {!props.authenticated && <div>
+            <div className="goSignin">
             <h1>You are not signed in</h1>
-                <p className='goSignin'>Click <a style={{textDecoration: 'underline'}}href="SignIn">me</a> to sign-in or sign-up</p>
+            <p>Click <a style={{textDecoration: 'underline'}}href="SignIn">me</a> to sign-in or sign-up</p>
+          </div>
           </div>}
         </div>
     );
