@@ -16,8 +16,8 @@ let interval;
 function Game (props) {
 
 //const token =
-const decoded = jwt_decode(token);
-console.log("decoded token = "+decoded);*/
+//const decoded = jwt_decode(token);
+//console.log("decoded token = "+decoded);
 
    const loadGame =() =>{
     //this.setState({display: !this.state.display})
