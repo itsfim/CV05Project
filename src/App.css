@@ -227,6 +227,7 @@ button[type="submit"]:hover {
   width: 40%;
   cursor: pointer;
   color:black;
+  margin-top: 5%;
 }
 
 .signout-input {
@@ -296,7 +297,7 @@ button[type="submit"]:hover {
   max-width:350px;
   margin-left: 20px;
 }
-.input-group .loginInput, .signupInput, .remInfo{
+.input-group .loginInput, .signupInput, .remInfo, .forgetInput{
   max-width: 100%;
 }
 .WrapperGame{
