@@ -56,7 +56,7 @@ function SignUp (props){
               {props.authenticated && <div>
                 {shouldRedirect && <Navigate replace to="/account" />}
               </div>}
-              {prop.authenticated && <div>
+              {props.authenticated && <div>
                 <div className='signupIntro'>
                   <h1 className= 'createA'> Create an Account</h1>
                   <div className="rectangle-2">
