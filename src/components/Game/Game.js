@@ -1,4 +1,3 @@
-import React, { useState, useEffect} from 'react';
 import '../../App.css'
 import './Game.css'
 
@@ -174,6 +173,7 @@ function Game (props) {
     const sendtodb=(event)=>{  
         const formData = new FormData();
         formData.append('TimeScore', event.score);
+        formData.append('DatePlayed', props.date);
         //formData.append('film_id', props.film.film_id);
        
        
@@ -194,9 +194,7 @@ function Game (props) {
           (e) => {
             console.log(e.message)
           })
-      }
-        //let change_display = this.state.display ? "none" : "block";
-        console.log(interval);
+    }
         return(
             //tom
             <div className=''>

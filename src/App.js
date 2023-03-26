@@ -32,7 +32,6 @@ function App() {
     .then(
       (json) => {
         setGamecore(json.data)
-        setLoading(false)
         console.log(json.data)
       }
     )
@@ -55,7 +54,7 @@ function App() {
          <Route path="homepage" element={<Homepage/>}/>
          <Route path="*" element={<NotFound/>}/>
          <Route exact path="login" element={<SignIn/>}/>
-         <Route path="game" element={<GameHouse/>}/>
+         <Route path="game" element={<GameHouse time={Time}/>}/>
          <Route path="account" element={<Account/>}/>
          <Route path="SignUp" element={<SignUp/>}/>
          <Route path="SignIn" element={<SignIn/>}/>
