@@ -5,14 +5,15 @@ import React, {useState, useEffect} from "react";
 import Homepage from './components/Home/homepage.js';
 import NotFound from "./components/Errors/notfound.js";
 import Navbar from "./components/Navbar/handleNavbar";
-import { BrowserRouter, Link, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import GameHouse from "./components/Game/gameHouse";
 import Report from './components/Report/Report.js';
 import Account from './components/Account/Account.js'
 import Timer from "./components/Timer/Timer.js";
 import SignIn from "./components/Login/SignIn.js";
-import SignUp from "./components/Login/SignUp.js";
+import SignUp from "./components/Login/SignUp";
 import ForgetUsernamePassword from "./components/Login/ForgetUsernamePassword";
+import SignOut from "./components/Login/SignOut";
 
 function App() {
   const Time = <Timer/>;
@@ -53,12 +54,13 @@ function App() {
          <Route path='/' exact={true} element={<Homepage/>}/>
          <Route path="homepage" element={<Homepage/>}/>
          <Route path="*" element={<NotFound/>}/>
-         <Route exact path="login" element={<SignIn/>}/>
+         <Route exact path="login" element={<SignIn authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="game" element={<GameHouse time={Time}/>}/>
          <Route path="account" element={<Account/>}/>
          <Route path="SignUp" element={<SignUp/>}/>
-         <Route path="SignIn" element={<SignIn/>}/>
+         <Route path="SignIn" element={<SignIn authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="ForgetUsernamePassword" element={<ForgetUsernamePassword/>}/>
+         <Route path="signOut" element={<SignOut authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="report" element={<Report gameScore={gameScore} loading={loading}/>}/>
          </Routes>
        </div>

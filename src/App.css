@@ -216,6 +216,20 @@ button[type="submit"]:hover {
 .forgetIntro{
   margin-left:50% ;
 }
+
+
+.primary2{
+  background-color: lightgrey;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  width: 40%;
+  cursor: pointer;
+  color:black;
+}
+
+
 @media only screen and (max-width: 1200px) {
   .Wrapper{
     display: grid;
@@ -235,7 +249,7 @@ button[type="submit"]:hover {
 .box1{
     max-width:500px;
   }
-.recoverAcc{
+.signupInput{
     max-width: 100%;
   }
   .loginIntro{
@@ -269,7 +283,7 @@ button[type="submit"]:hover {
   max-width:350px;
   margin-left: 20px;
 }
-.input-group .loginInput, .recoverAcc1, .recoverAcc{
+.input-group .loginInput, .signupInput, .remInfo{
   max-width: 100%;
 }
 .WrapperGame{
