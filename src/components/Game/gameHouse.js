@@ -1,13 +1,22 @@
 import React from 'react';
-import Timer from '../Timer/Timer.js';
+import { Navigate } from 'react-router-dom';
 import Game from './Game.js'
 function GameHouse (props){
   const date = props.time;
+
+  const shouldRedirect = true;
       return (
-        <div className="pageIntro"><h1>Game!</h1>
+        <div>
+          {props.authenticated && <div>
+            <div className="pageIntro"><h1>Game!</h1>
           <div className='WrapperGame'>
             <Game className='item' date={date} />
           </div>
+        </div>
+          </div>}
+          {!props.authenticated && <div>
+            {shouldRedirect && <Navigate replace to="/signIn" />}
+            </div>}
         </div>
       );
     }

@@ -55,7 +55,7 @@ function App() {
          <Route path="homepage" element={<Homepage/>}/>
          <Route path="*" element={<NotFound/>}/>
          <Route exact path="login" element={<SignIn authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
-         <Route path="game" element={<GameHouse time={Time}/>}/>
+         <Route path="game" element={<GameHouse time={Time} authenticated={authenticated}/>}/>
          <Route path="account" element={<Account/>}/>
          <Route path="SignUp" element={<SignUp/>}/>
          <Route path="SignIn" element={<SignIn authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>

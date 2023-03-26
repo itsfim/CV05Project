@@ -13,34 +13,6 @@ let timer = 10;
 let interval;
 
 function Game (props) {
-   
-   /*
-    constructor(){
-        super();
-
-        this.state = {
-             display: true
-        }
-
-    this.sendState = {
-      DatePlayed: "",
-      TimeScore:"",
-      UserID: "",
-    };
-        this.loadGame = this.loadGame.bind(this);
-        this.generatePattern = this.generatePattern.bind(this);
-        this.displayPattern = this.displayPattern.bind(this);
-        this.countdown = this.countdown.bind(this);
-        this.clearPattern = this.clearPattern.bind(this);
-        this.checkUserInput= this.checkUserInput.bind(this);
-        this.resetGame = this.resetGame.bind(this);
-
-
-   }
-   changeDisplay(){
-       this.setState({display: !this.state.display})
-   }*/
-
    const loadGame =() =>{
     //this.setState({display: !this.state.display})
     resetGame();
