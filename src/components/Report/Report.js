@@ -1,12 +1,11 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
+
 import "./Report.css"
 import '../../App.css'
  
-/**
- * Report page component
- * 
+/**Report page component
  * This page will show information about Gamscores for users.
- * 
  * @author Max Endersby
  */
 function Report(props) {
@@ -24,7 +23,7 @@ function Report(props) {
     return (
         <div>
             {!props.authenticated && <div>
-                {shouldRedirect && <Navigate replace to="/account" />}
+                {shouldRedirect && <Navigate replace to="/SignIn" />}
             </div>}
             {props.authenticated && <div>
                 <div className='pageIntro'>

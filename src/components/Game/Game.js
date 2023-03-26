@@ -1,6 +1,6 @@
 import '../../App.css'
 import './Game.css'
-import { Navigate } from 'react-router-dom';
+import jwt_decode from "jwt-decode"; 
 
 let colors = ['red', 'blue', 'green', 'yellow', 'purple'];
 let shapes = ['circle','triangle','square'];
@@ -14,6 +14,11 @@ let timer = 10;
 let interval;
 
 function Game (props) {
+
+//const token =
+const decoded = jwt_decode(token);
+console.log("decoded token = "+decoded);*/
+
    const loadGame =() =>{
     //this.setState({display: !this.state.display})
     resetGame();
@@ -147,7 +152,7 @@ function Game (props) {
         const formData = new FormData();
         formData.append('TimeScore', event.score);
         formData.append('DatePlayed', props.date);
-        //formData.append('film_id', props.film.film_id);
+        //formData.append('UserID', props.userID);
        
        
         fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/addgamescore",
@@ -168,15 +173,9 @@ function Game (props) {
             console.log(e.message)
           })
     }
-
-    const shouldRedirect = true;
         return(
             //tom
             <div>
-                {!props.authenticated && <div>
-                    {shouldRedirect && <Navigate replace to="/account" />}
-                </div>}
-                {props.authenticated && <div>
                     <div className=''>
                         <h1 className=''>Game Page</h1>
                         <main className='main'>
@@ -192,8 +191,7 @@ function Game (props) {
                             </div>
                         </main>
                     </div>
-                </div>}
-            </div>
+                </div>
         )
 }
 export default Game;
