@@ -229,6 +229,11 @@ button[type="submit"]:hover {
   color:black;
 }
 
+.signout-input {
+  margin-top: 100px;
+  margin-left: 400px;
+}
+
 
 @media only screen and (max-width: 1200px) {
   .Wrapper{
@@ -261,6 +266,10 @@ button[type="submit"]:hover {
   .forgetIntro{
     margin-left:40% ;
   }
+  .signout-input {
+    margin-top: 100px;
+    margin-left: 100px;
+}
 }
 @media only screen and (max-width: 796px) {
 .Wrapper{
@@ -274,6 +283,10 @@ button[type="submit"]:hover {
   max-width: 75%;
   margin-left: 10%;
   margin-top: 10%;
+}
+.signout-input {
+  margin-top: 100px;
+  margin-left: 100px;
 }
 .logbgimg{
   position: relative;
