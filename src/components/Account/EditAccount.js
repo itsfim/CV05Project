@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import './Account.css';
 import React, { useState, useEffect } from 'react';
-import { useBootstrapPrefix } from 'react-bootstrap/esm/ThemeProvider';
+
 
 function EditAccount(props) {
 

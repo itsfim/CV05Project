@@ -106,6 +106,14 @@ img{
   animation-duration: 1s;
   border-radius: 0px 25px 25px 0px;
 }
+.revButton ul{
+  width: 100%;
+  transition: ease-out;
+  animation-name: revMenuTransition;
+  animation-duration: 1s;
+  border-radius: 0px 25px 25px 0px;
+}
+
 .pageIntro{
   animation-name: fadeIn;
   animation-duration: 1s;
@@ -343,6 +351,10 @@ right: 25%;
 0% {width: 0%;}
 100% {width: 100%}
 }
+@keyframes revMenuTransition {
+  0% {width: 100%;}
+  100% {width: 0%}
+  }
 @keyframes fadeIn{
   0% {
     opacity: 0;
