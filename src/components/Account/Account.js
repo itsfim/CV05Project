@@ -1,8 +1,10 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate} from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import './Account.css';
-import {useEffect,useState } from 'preact/hooks';
+import React, { useState, useEffect } from 'react';
 import { useBootstrapPrefix } from 'react-bootstrap/esm/ThemeProvider';
+import EditAccount from './EditAccount';
+import { get } from 'jquery';
 
 function Account(props) {
 
@@ -17,8 +19,8 @@ function Account(props) {
         props.handleAuthenticated(false);
         localStorage.removeItem('token');
     }
-    /*
-    const[numberofGamesPlayed, setNumberOfGamesPlayed] = useState("");
+    
+    const[numberofGamesPlayed, setNumberOfGamesPlayed] = useState();
     const countNumberOfGames = () =>{
         const formData = new FormData();
         formData.append('UserID', userID);
@@ -35,15 +37,50 @@ function Account(props) {
         .then(
           (json) => {
             console.log(json)
-            setNumberOfGamesPlayed(json.data)
+            setNumberOfGamesPlayed(json.queryResult)
           })
         .catch(
           (e) => {
             console.log(e.message)
           })
-    }*/ 
+    }
+    const[username, setUsername] = useState("");
 
-        const deleteUser=()=>{  
+    const getUsername = () =>{
+        const formData = new FormData();
+        formData.append('UserID', userID);
+       
+       //fetch api -> post form data 
+        fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/getusername",
+          {
+            method: 'POST',
+            body: formData
+          })
+        .then(
+          (response) => response.text()
+        )
+        .then(
+          (json) => {
+            console.log(json)
+            setUsername(json.queryResult)
+          })
+        .catch(
+          (e) => {
+            console.log(e.message)
+          })
+    }
+
+    useEffect(() => {
+        countNumberOfGames();
+        getUsername();
+    });
+    
+    const navigate = useNavigate();
+    const editUser=()=>{  
+        navigate('/EditAccount');
+    }
+
+    const deleteUser=()=>{  
         const formData = new FormData();
         formData.append('UserID', userID);
        
@@ -59,7 +96,6 @@ function Account(props) {
         .then(
           (json) => {
             console.log(json)
-            props.handleInsert()
           })
         .catch(
           (e) => {
@@ -69,7 +105,7 @@ function Account(props) {
         signOut();
         {shouldRedirect && <Navigate replace to="/signIn" />}
     }
-
+    console.log(numberofGamesPlayed);
     const shouldRedirect = true;
         return(
             <div>
@@ -87,9 +123,9 @@ function Account(props) {
                                 <div classname='accInfo'>
                                     <h3 classname='subHeading1'>Account Info</h3>
                                     <h3 classname='subHeading2'>Username</h3>
-                                    <h3 classname='subHeading3'>No. of games played</h3>
+                                    <h3 classname='subHeading3'>No. of games played: {numberofGamesPlayed}</h3>
                                 </div>
-                                <button className="primary1">EDIT</button>
+                                <button onClick={editUser}className="primary1">EDIT</button>
                                 <button onClick={deleteUser} className="secondary1">Delete Account</button>
                             </main>
                         </div>

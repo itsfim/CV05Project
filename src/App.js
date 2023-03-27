@@ -12,6 +12,7 @@ import SignIn from "./components/Login/SignIn.js";
 import SignUp from "./components/Login/SignUp";
 import ForgetUsernamePassword from "./components/Login/ForgetUsernamePassword";
 import SignOut from "./components/Login/SignOut";
+import EditAccount from "./components/Account/EditAccount";
 
 function App() {
   const Time = <Timer/>;
@@ -55,6 +56,7 @@ function App() {
          <Route exact path="login" element={<SignIn authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="game" element={<GameHouse authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="account" element={<Account authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
+         <Route path="EditAccount" element={<EditAccount authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="SignUp" element={<SignUp authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="SignIn" element={<SignIn authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="ForgetUsernamePassword" element={<ForgetUsernamePassword authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
