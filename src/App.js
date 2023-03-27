@@ -59,7 +59,7 @@ function App() {
          <Route path="SignIn" element={<SignIn authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="ForgetUsernamePassword" element={<ForgetUsernamePassword authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="signOut" element={<SignOut authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
-         <Route path="report" element={<Report gameScore={gameScore} loading={loading} authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
+         <Route path="report" element={<Report gameScore={gameScore} loading={loading} authenticated={authenticated} handleAuthenticated={setAuthenticated} handleInsert={handleInsert}/>}/>
          </Routes>
        </div>
        </BrowserRouter>
