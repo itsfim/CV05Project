@@ -20,7 +20,10 @@ function Account(props) {
         localStorage.removeItem('token');
     }
     
-    const[numberofGamesPlayed, setNumberOfGamesPlayed] = useState();
+    const[numberofGamesPlayed, setNumberOfGamesPlayed] = useState([]);
+
+    //const countNumGPlayed = numberofGamesPlayed[2];
+
     const countNumberOfGames = () =>{
         const formData = new FormData();
         formData.append('UserID', userID);
@@ -32,7 +35,7 @@ function Account(props) {
             body: formData
           })
         .then(
-          (response) => response.text()
+          (response) => response.json()
         )
         .then(
           (json) => {
@@ -44,25 +47,37 @@ function Account(props) {
             console.log(e.message)
           })
     }
-    const[username, setUsername] = useState("");
 
-    const getUsername = () =>{
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [memorableQ, setMemQ] = useState("");
+    const [memorableA, setMemA] = useState("");
+    //const userDetailsString = JSON.parse(userDetails);
+    
+    const [userDetails, setUserDetails] = useState("");
+
+    console.log(userDetails);
+
+    const getUserDetails = () =>{
         const formData = new FormData();
         formData.append('UserID', userID);
        
        //fetch api -> post form data 
-        fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/getusername",
+        fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/player",
           {
             method: 'POST',
             body: formData
           })
         .then(
-          (response) => response.text()
+          (response) => response.json()
         )
         .then(
           (json) => {
             console.log(json)
-            setUsername(json.queryResult)
+            //setUsername(json.data.Username)
+            setUserDetails(json.data);
+            console.log(json.data)
           })
         .catch(
           (e) => {
@@ -72,7 +87,7 @@ function Account(props) {
 
     useEffect(() => {
         countNumberOfGames();
-        getUsername();
+        getUserDetails();
     });
     
     const navigate = useNavigate();
@@ -123,7 +138,7 @@ function Account(props) {
                                 <div classname='accInfo'>
                                     <h3 classname='subHeading1'>Account Info</h3>
                                     <h3 classname='subHeading2'>Username</h3>
-                                    <h3 classname='subHeading3'>No. of games played: {numberofGamesPlayed}</h3>
+                                    <h3 classname='subHeading3'>No. of games played:</h3>
                                 </div>
                                 <button onClick={editUser}className="primary1">EDIT</button>
                                 <button onClick={deleteUser} className="secondary1">Delete Account</button>
