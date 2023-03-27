@@ -20,76 +20,6 @@ function Account(props) {
         localStorage.removeItem('token');
     }
     
-    const[numberofGamesPlayed, setNumberOfGamesPlayed] = useState([]);
-
-    //const countNumGPlayed = numberofGamesPlayed[2];
-
-    const countNumberOfGames = () =>{
-        const formData = new FormData();
-        formData.append('UserID', userID);
-       
-       //fetch api -> post form data 
-        fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/countgamescore",
-          {
-            method: 'POST',
-            body: formData
-          })
-        .then(
-          (response) => response.json()
-        )
-        .then(
-          (json) => {
-            console.log(json)
-            setNumberOfGamesPlayed(json.queryResult)
-          })
-        .catch(
-          (e) => {
-            console.log(e.message)
-          })
-    }
-
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [memorableQ, setMemQ] = useState("");
-    const [memorableA, setMemA] = useState("");
-    //const userDetailsString = JSON.parse(userDetails);
-    
-    const [userDetails, setUserDetails] = useState("");
-
-    console.log(userDetails);
-
-    const getUserDetails = () =>{
-        const formData = new FormData();
-        formData.append('UserID', userID);
-       
-       //fetch api -> post form data 
-        fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/player",
-          {
-            method: 'POST',
-            body: formData
-          })
-        .then(
-          (response) => response.json()
-        )
-        .then(
-          (json) => {
-            console.log(json)
-            //setUsername(json.data.Username)
-            setUserDetails(json.data);
-            console.log(json.data)
-          })
-        .catch(
-          (e) => {
-            console.log(e.message)
-          })
-    }
-
-    useEffect(() => {
-        countNumberOfGames();
-        getUserDetails();
-    });
-    
     const navigate = useNavigate();
     const editUser=()=>{  
         navigate('/EditAccount');
@@ -120,7 +50,16 @@ function Account(props) {
         signOut();
         {shouldRedirect && <Navigate replace to="/signIn" />}
     }
-    console.log(numberofGamesPlayed);
+
+    const userDetails = props.userDetails?.map(
+        (value, key) => <div className ="" key={key}>
+            <p className=''>Username: {value.Username} </p>
+            <p className=''>Email: {value.email} </p>
+            <p className='' >Memorable Q: {value.memorableQ}</p>
+            <p className='' >Memorable A: {value.memorableA}</p>
+          </div>
+      )
+
     const shouldRedirect = true;
         return(
             <div>
@@ -136,9 +75,8 @@ function Account(props) {
                                     <h2 className='subHeading'>image placeholder</h2>
                                 </div>
                                 <div classname='accInfo'>
-                                    <h3 classname='subHeading1'>Account Info</h3>
-                                    <h3 classname='subHeading2'>Username</h3>
-                                    <h3 classname='subHeading3'>No. of games played:</h3>
+                                    {userDetails}
+                                    <p>Number of Games Played:</p>
                                 </div>
                                 <button onClick={editUser}className="primary1">EDIT</button>
                                 <button onClick={deleteUser} className="secondary1">Delete Account</button>

@@ -1,5 +1,6 @@
 import "./App.css";
 import React, {useState, useEffect} from "react";
+import jwt_decode from 'jwt-decode';
 import Homepage from './components/Home/homepage.js';
 import NotFound from "./components/Errors/notfound.js";
 import Navbar from "./components/Navbar/handleNavbar";
@@ -16,15 +17,74 @@ import EditAccount from "./components/Account/EditAccount";
 
 function App() {
   const Time = <Timer/>;
+
+  const token = localStorage.getItem('token');
+        const decoded = jwt_decode(token);
+        const stringifyToken = JSON.stringify(decoded);
+        const parseToken = JSON.parse(stringifyToken);
+        const userID = parseToken.sub;
+        console.log(userID);
+
   const [gameScore, setGamecore] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const[numberofGamesPlayed, setNumberOfGamesPlayed] = useState([]);
+  const[userDetails, setUserDetails] = useState([]);
 
   const [authenticated, setAuthenticated] = useState(false);
   const handleAuthenticated = (isAuthenticated) => {setAuthenticated(isAuthenticated)}
 
-  const [insert,setInsert] = useState(0);
+  //const countNumGPlayed = numberofGamesPlayed[2];
 
-  useEffect(()=>{
+  const countNumberOfGames = () =>{
+      const formData = new FormData();
+      formData.append('UserID', userID);
+     
+     //fetch api -> post form data 
+      fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/countgamescore",
+        {
+          method: 'POST',
+          body: formData
+        })
+      .then(
+        (response) => response.json()
+      )
+      .then(
+        (json) => {
+          console.log(json)
+          setNumberOfGamesPlayed(json.queryResult)
+        })
+      .catch(
+        (e) => {
+          console.log(e.message)
+        })
+  }
+
+  const getUserDetails = () =>{
+      const formData = new FormData();
+      formData.append('UserID', userID);
+     
+     //fetch api -> post form data 
+      fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/player",
+        {
+          method: 'POST',
+          body: formData
+        })
+      .then(
+        (response) => response.json()
+      )
+      .then(
+        (json) => {
+          console.log(json)
+          //setUsername(json.data.Username)
+          setUserDetails(json.data);
+          console.log(json.data)
+        })
+      .catch(
+        (e) => {
+          console.log(e.message)
+        })
+  }
+
+  const getGameScore = () =>{
     fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/gamescore")
     .then(
       (response) => response.json()
@@ -40,8 +100,15 @@ function App() {
         console.log(e.message)
       }
     )
-  },[insert]);
-  const handleInsert = () => {setInsert(insert+1)}
+
+  }
+
+  useEffect(() => {
+      countNumberOfGames();
+      getUserDetails();
+      getGameScore();
+  });
+
   return (
     
     <div>
@@ -55,13 +122,13 @@ function App() {
          <Route path="*" element={<NotFound/>}/>
          <Route exact path="login" element={<SignIn authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="game" element={<GameHouse authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
-         <Route path="account" element={<Account authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
+         <Route path="account" element={<Account userDetails={userDetails} numberofGamesPlayed={numberofGamesPlayed} authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="EditAccount" element={<EditAccount authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="SignUp" element={<SignUp authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="SignIn" element={<SignIn authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="ForgetUsernamePassword" element={<ForgetUsernamePassword authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
          <Route path="signOut" element={<SignOut authenticated={authenticated} handleAuthenticated={setAuthenticated}/>}/>
-         <Route path="report" element={<Report gameScore={gameScore} loading={loading} authenticated={authenticated} handleAuthenticated={setAuthenticated} handleInsert={handleInsert}/>}/>
+         <Route path="report" element={<Report gameScore={gameScore} authenticated={authenticated}/>}/>
          </Routes>
        </div>
        </BrowserRouter>
