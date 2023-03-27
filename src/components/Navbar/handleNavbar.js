@@ -4,18 +4,12 @@ class Navbar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            display: false,
-            anim:'button',
+            display: false
         }
 
     }
     handleClick = () => {
         this.setState({display:!this.state.display})
-        if(this.state.display){
-          this.setState({anim:'revButton'});
-        }
-        else{this.setState({anim:'button'})}
-        setTimeout(100);
     }
 render() {
     let time = this.props.startTime;
@@ -35,7 +29,7 @@ render() {
     }
   return ( 
     <nav>
-          <div className={this.state.anim}>
+          <div className="button">
             <div href="#" onClick={this.handleClick} className="toggleHam">
             <div className='bar'></div>
             <div className='bar'></div>
