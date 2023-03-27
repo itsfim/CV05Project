@@ -9,13 +9,6 @@ import './ForgetUsernamePassword.css'
 function ForgetUsernamePassword (props) {
     const [loginInfo, setLoginInfo] = useState("");
     const [memorableA, setMemA] = useState("");
-  
-  useEffect(
-    () => {
-      if (localStorage.getItem('token')) {
-        props.handleAuthenticated(true)
-      }
-    },[])
 
     const handleLoginInfo = (event) => {
         setLoginInfo(event.target.value);
@@ -33,7 +26,6 @@ function ForgetUsernamePassword (props) {
 
           console.log(loginInfo);
           console.log(memorableA);
-          console.log(encodedString);
 
         fetch("http://unn-w20022435.newnumyspace.co.uk/groupProj/api/altauth",
         {
@@ -42,7 +34,7 @@ function ForgetUsernamePassword (props) {
         })
         .then(
             (response) => {   
-                return response.json()
+                return response.text()
             }
         )
         .then(
@@ -64,10 +56,9 @@ function ForgetUsernamePassword (props) {
         return(
             <div>
                 {props.authenticated && <div>
-              {shouldRedirect && <Navigate replace to="/account" />}
+                {shouldRedirect && <Navigate replace to="/account" />}
               </div>}
               {!props.authenticated && 
-            
                 <div>
                     <div className='forgetIntro'>
                     <h1 className='reUNPW'>Recover username / password</h1>

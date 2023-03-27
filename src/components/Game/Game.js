@@ -43,25 +43,14 @@ function Game (props) {
           var color = pattern[i].color;
           var shape = pattern[i].shape;
           var div = document.createElement('div');
-          div.className = shape;
-          //checking infor before and after colour changes
-          console.log('shape before -if- statment ' + shape);
-          console.log('color before if ' + color)
-          console.log('border before if ' + div.style.borderBottom);
+          div.className = shape;;
           //colour needs to be applied to the border for the triangle image
           if(shape!='triangle'){
             div.style.backgroundColor= color;
-            console.log('working if statement')
           }else {
             div.style.borderBottomColor= color;
-            console.log('else if triggered')
 
           }
-          //double checking info in console
-          console.log('div className '+ div.className);
-          console.log('background color '+ div.style.backgroundColor);
-          console.log(' triangle border '+ div.style.borderBottomColor);
-
           patternDiv.appendChild(div);
         }
         document.getElementById('pattern').style.display = 'flex';
@@ -196,7 +185,7 @@ function Game (props) {
                         <h1 className=''>Game Page</h1>
                         <main className='main'>
                             <button onClick={loadGame}>Start Game</button>
-                            <div /*className={change_display}*/>
+                            <div>
                             <h2>Remember the pattern:</h2>
                             <div id="pattern"></div>
                                 <label for="input">Enter the color of the shape:</label>
